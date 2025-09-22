@@ -5,6 +5,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -29,11 +30,33 @@ namespace DinamicMaps
         private void carListesiniOlustur()
         {
             list = new List<car>();
-            list.Add(new car("BMW", "34ABC34", "Car", "Ankara", "İstanbul", new PointLatLng(39.9334, 32.8597)));
-            list.Add(new car("Mercedes", "06AG456", "Car", "istanbul", "Bursa", new PointLatLng(41.20, 30.5)));
-            list.Add(new car("Renault", "01DD568", "Ticari", "Adana", "İstanbul", new PointLatLng(20.09, 25.97)));
-            list.Add(new car("BMW", "34KM384", "Car", "Ankara", "Balıkesir", new PointLatLng(42.9334, 35.8597)));
-            list.Add(new car("BMW", "35DK354", "Tir", "Samsun", "İstanbul", new PointLatLng(41.34, 29.8597)));
+
+
+            try                                                                 // Databasenin ADO.NET ile bilgileri çekilmesi
+            {
+                connection.Open();
+                string sqlCumlesi = "SELECT Model, Plaka, CarType, FromWhere, ToWhere, Enlem ,Boylam FROM Cars";
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlCumlesi, connection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dt;                              // datagridview e veriler aktarıldı.                
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Veritabanı bağlanıtısı sırasında bir hata oluştu, hata kodu:101\n " + ex.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void InitializeMap()
@@ -50,9 +73,10 @@ namespace DinamicMaps
 
         }
 
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
-            PointLatLng location1 = new PointLatLng(Convert.ToDouble(textBoxEnlem.Text), 
+            PointLatLng location1 = new PointLatLng(Convert.ToDouble(textBoxEnlem.Text),
                                                     Convert.ToDouble(textBoxBoylam.Text));
             GMarkerGoogle marker = new GMarkerGoogle(location1, GMarkerGoogleType.lightblue_dot);
 
@@ -64,6 +88,7 @@ namespace DinamicMaps
 
             overlay1.Markers.Add(marker);                                       //marker katmana eklendi.
         }
+        */
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -71,16 +96,7 @@ namespace DinamicMaps
             Application.Exit();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /*
         private void button2_Click(object sender, EventArgs e)
         {
             PointLatLng location2 = new PointLatLng(Convert.ToDouble(textBox2.Text),
@@ -90,6 +106,7 @@ namespace DinamicMaps
 
             overlay1.Markers.Add(marker2);
         }
+        */
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
@@ -112,11 +129,6 @@ namespace DinamicMaps
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             foreach (car car in list)
@@ -133,10 +145,6 @@ namespace DinamicMaps
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label9_Click(object sender, EventArgs e)
         {
