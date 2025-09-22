@@ -15,7 +15,7 @@ namespace DinamicMaps
     {
         GMapOverlay overlay1;
         List<car> list;
-        SqlConnection connection = new SqlConnection(@"Data Source = LENOVO - BERIL; Initial Catalog = projelerVT; Integrated Security = True; Encrypt=False");
+        SqlConnection connection = new SqlConnection(@"Data Source=LENOVO-BERIL;Initial Catalog=projelerVT;Integrated Security=True;Encrypt=False");
 
 
 
@@ -24,10 +24,28 @@ namespace DinamicMaps
         {
             InitializeComponent();
             InitializeMap();
-            carListesiniOlustur();
+            createCarList();
         }
 
-        private void carListesiniOlustur()
+        private void carsOpenMap()
+        {
+            foreach (car car in list)
+            {
+                GMarkerGoogle markerTmp = new GMarkerGoogle(car.Location, GMarkerGoogleType.green_dot);
+                markerTmp.Tag = car.Plaka;
+                markerTmp.ToolTipText = car.ToString();
+                markerTmp.ToolTip.Fill = System.Drawing.Brushes.LightGray;
+                markerTmp.ToolTip.Foreground = System.Drawing.Brushes.Black;
+                markerTmp.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+
+                overlay1.Markers.Add(markerTmp);                        // Katmana araçlar eklendi.
+                
+            }
+
+            
+        }
+
+        private void createCarList()
         {
             list = new List<car>();
 
@@ -35,15 +53,25 @@ namespace DinamicMaps
             try                                                                 // Databasenin ADO.NET ile bilgileri çekilmesi
             {
                 connection.Open();
-                string sqlCumlesi = "SELECT Model, Plaka, CarType, FromWhere, ToWhere, Enlem ,Boylam FROM Cars";
+                string sqlSentence = "SELECT Model, Plaka, CarType, FromWhere, ToWhere, Enlem ,Boylam FROM Cars";
 
-                SqlDataAdapter da = new SqlDataAdapter(sqlCumlesi, connection);
+                SqlDataAdapter da = new SqlDataAdapter(sqlSentence, connection);
                 DataTable dt = new DataTable();
-                da.Fill(dt);
+                da.Fill(dt);                                                    // VT daki veriler datatable a dolduruldu.
                 if (dt.Rows.Count > 0)
                 {
                     dataGridView1.DataSource = dt;                              // datagridview e veriler aktarıldı.                
+                }
 
+                for(int i=0; i<dt.Rows.Count; i++)                              // listemixin içini çekilen verilerle doldur.
+                {
+                    list.Add(new car(dt.Rows[i][0].ToString(),
+                                    dt.Rows[i][1].ToString(),
+                                    dt.Rows[i][2].ToString(),
+                                    dt.Rows[i][3].ToString(),
+                                    dt.Rows[i][4].ToString(),
+                                    new PointLatLng(Convert.ToDouble(dt.Rows[i][5].ToString()),
+                                                    Convert.ToDouble(dt.Rows[i][6].ToString()))));
                 }
             }
             catch (Exception ex)
@@ -57,6 +85,8 @@ namespace DinamicMaps
                     connection.Close();
                 }
             }
+
+            carsOpenMap();
         }
 
         private void InitializeMap()
@@ -131,18 +161,7 @@ namespace DinamicMaps
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (car car in list)
-            {
-                GMarkerGoogle markerTmp = new GMarkerGoogle(car.Location, GMarkerGoogleType.green_dot);
-                markerTmp.Tag = car.Plaka;
-                markerTmp.ToolTipText = car.ToString();
-                markerTmp.ToolTip.Fill = System.Drawing.Brushes.LightGray;
-                markerTmp.ToolTip.Foreground = System.Drawing.Brushes.Black;
-                markerTmp.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-
-                overlay1.Markers.Add(markerTmp);                        // Katmana araçlar eklendi.
-                Console.WriteLine(car.ToString());
-            }
+            carsOpenMap();
         }
 
 
