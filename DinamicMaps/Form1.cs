@@ -88,7 +88,22 @@ namespace DinamicMaps
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             string markerId = (string)item.Tag;
-            Console.WriteLine("Marker ID: " + markerId + "click the marker");
+            //Console.WriteLine("Marker ID: " + markerId + "click the marker");
+
+            foreach (car car in list)
+            {
+                if (markerId.Equals(car.Plaka))
+                {
+                    textBox3.Text = car.Model;
+                    textBox4.Text = car.Plaka;
+                    textBox5.Text = car.Tipi;
+                    textBox6.Text = car.From;
+                    textBox7.Text = car.To;
+                    break;
+                }
+            }
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -110,6 +125,21 @@ namespace DinamicMaps
                 overlay1.Markers.Add(markerTmp);                        // Katmana araçlar eklendi.
                 Console.WriteLine(car.ToString());
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
