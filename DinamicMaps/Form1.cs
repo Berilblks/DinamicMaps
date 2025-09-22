@@ -5,6 +5,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DinamicMaps
@@ -13,6 +14,11 @@ namespace DinamicMaps
     {
         GMapOverlay overlay1;
         List<car> list;
+        SqlConnection connection = new SqlConnection(@"Data Source = LENOVO - BERIL; Initial Catalog = projelerVT; Integrated Security = True; Encrypt=False");
+
+
+
+
         public Form1()
         {
             InitializeComponent();
