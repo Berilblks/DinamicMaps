@@ -4,6 +4,7 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DinamicMaps
@@ -11,10 +12,22 @@ namespace DinamicMaps
     public partial class Form1 : Form
     {
         GMapOverlay overlay1;
+        List<car> list;
         public Form1()
         {
             InitializeComponent();
             InitializeMap();
+            carListesiniOlustur();
+        }
+
+        private void carListesiniOlustur()
+        {
+            list = new List<car>();
+            list.Add(new car("BMW", "34ABC34", "Car", "Ankara", "İstanbul", new PointLatLng(39.9334, 32.8597)));
+            list.Add(new car("Mercedes", "06AG456", "Car", "istanbul", "Bursa", new PointLatLng(41.20, 30.5)));
+            list.Add(new car("Renault", "01DD568", "Ticari", "Adana", "İstanbul", new PointLatLng(20.09, 25.97)));
+            list.Add(new car("BMW", "34KM384", "Car", "Ankara", "Balıkesir", new PointLatLng(42.9334, 35.8597)));
+            list.Add(new car("BMW", "35DK354", "Tir", "Samsun", "İstanbul", new PointLatLng(41.34, 29.8597)));
         }
 
         private void InitializeMap()
@@ -74,8 +87,29 @@ namespace DinamicMaps
 
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            int markerId = (int)item.Tag;
+            string markerId = (string)item.Tag;
             Console.WriteLine("Marker ID: " + markerId + "click the marker");
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (car car in list)
+            {
+                GMarkerGoogle markerTmp = new GMarkerGoogle(car.Location, GMarkerGoogleType.green_dot);
+                markerTmp.Tag = car.Plaka;
+                markerTmp.ToolTipText = car.ToString();
+                markerTmp.ToolTip.Fill = System.Drawing.Brushes.LightGray;
+                markerTmp.ToolTip.Foreground = System.Drawing.Brushes.Black;
+                markerTmp.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+
+                overlay1.Markers.Add(markerTmp);                        // Katmana araçlar eklendi.
+                Console.WriteLine(car.ToString());
+            }
         }
     }
 }

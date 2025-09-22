@@ -45,6 +45,7 @@ namespace DinamicMaps
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // map
@@ -78,7 +79,7 @@ namespace DinamicMaps
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(874, 475);
+            this.button1.Location = new System.Drawing.Point(866, 261);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 54);
@@ -90,7 +91,7 @@ namespace DinamicMaps
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(871, 313);
+            this.label1.Location = new System.Drawing.Point(863, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 2;
@@ -100,7 +101,7 @@ namespace DinamicMaps
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(871, 370);
+            this.label2.Location = new System.Drawing.Point(863, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 3;
@@ -108,14 +109,14 @@ namespace DinamicMaps
             // 
             // textBoxEnlem
             // 
-            this.textBoxEnlem.Location = new System.Drawing.Point(948, 313);
+            this.textBoxEnlem.Location = new System.Drawing.Point(940, 99);
             this.textBoxEnlem.Name = "textBoxEnlem";
             this.textBoxEnlem.Size = new System.Drawing.Size(177, 22);
             this.textBoxEnlem.TabIndex = 4;
             // 
             // textBoxBoylam
             // 
-            this.textBoxBoylam.Location = new System.Drawing.Point(948, 367);
+            this.textBoxBoylam.Location = new System.Drawing.Point(940, 153);
             this.textBoxBoylam.Name = "textBoxBoylam";
             this.textBoxBoylam.Size = new System.Drawing.Size(177, 22);
             this.textBoxBoylam.TabIndex = 5;
@@ -123,7 +124,7 @@ namespace DinamicMaps
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(910, 421);
+            this.label3.Location = new System.Drawing.Point(902, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(189, 16);
             this.label3.TabIndex = 6;
@@ -132,15 +133,16 @@ namespace DinamicMaps
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1230, 313);
+            this.label4.Location = new System.Drawing.Point(863, 405);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Enlem:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1306, 310);
+            this.textBox1.Location = new System.Drawing.Point(940, 399);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(177, 22);
             this.textBox1.TabIndex = 8;
@@ -148,7 +150,7 @@ namespace DinamicMaps
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1230, 370);
+            this.label5.Location = new System.Drawing.Point(864, 459);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 9;
@@ -157,7 +159,7 @@ namespace DinamicMaps
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(1306, 370);
+            this.textBox2.Location = new System.Drawing.Point(940, 459);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(177, 22);
             this.textBox2.TabIndex = 10;
@@ -165,7 +167,7 @@ namespace DinamicMaps
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1269, 421);
+            this.label6.Location = new System.Drawing.Point(903, 510);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(189, 16);
             this.label6.TabIndex = 11;
@@ -173,7 +175,7 @@ namespace DinamicMaps
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1233, 475);
+            this.button2.Location = new System.Drawing.Point(867, 564);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(251, 54);
@@ -185,7 +187,7 @@ namespace DinamicMaps
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1201, 274);
+            this.label7.Location = new System.Drawing.Point(835, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 13;
@@ -194,17 +196,29 @@ namespace DinamicMaps
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(846, 274);
+            this.label8.Location = new System.Drawing.Point(835, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 16);
             this.label8.TabIndex = 14;
             this.label8.Text = "Marker1";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(866, 643);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(251, 54);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Araçları Haritaya Yerleştir";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1916, 742);
+            this.ClientSize = new System.Drawing.Size(1308, 742);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
@@ -257,6 +271,7 @@ namespace DinamicMaps
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
     }
 }
 
