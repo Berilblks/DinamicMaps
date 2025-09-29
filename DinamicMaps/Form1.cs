@@ -147,11 +147,11 @@ namespace DinamicMaps
             {
                 if (markerId.Equals(car.Plaka))
                 {
-                    textBox3.Text = car.Model;
-                    textBox4.Text = car.Plaka;
-                    textBox5.Text = car.Tipi;
-                    textBox6.Text = car.From;
-                    textBox7.Text = car.To;
+                    textBox1.Text = car.Model;
+                    textBox2.Text = car.Plaka;
+                    textBox3.Text = car.Tipi;
+                    textBox4.Text = car.From;
+                    textBox5.Text = car.To;
                     break;
                 }
             }
