@@ -44,6 +44,10 @@ namespace DinamicMaps
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxEnlem = new System.Windows.Forms.TextBox();
+            this.textBoxBoylam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +63,7 @@ namespace DinamicMaps
             this.map.GrayScaleMode = false;
             this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.map.LevelsKeepInMemory = 5;
-            this.map.Location = new System.Drawing.Point(12, 12);
+            this.map.Location = new System.Drawing.Point(26, 21);
             this.map.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.map.MarkersEnabled = true;
             this.map.MaxZoom = 2;
@@ -74,7 +78,7 @@ namespace DinamicMaps
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(1809, 664);
+            this.map.Size = new System.Drawing.Size(1762, 664);
             this.map.TabIndex = 0;
             this.map.Zoom = 0D;
             this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
@@ -82,7 +86,7 @@ namespace DinamicMaps
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(155, 239);
+            this.textBox5.Location = new System.Drawing.Point(74, 230);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(115, 22);
             this.textBox5.TabIndex = 20;
@@ -97,44 +101,44 @@ namespace DinamicMaps
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1386, 269);
+            this.dataGridView1.Size = new System.Drawing.Size(1301, 269);
             this.dataGridView1.TabIndex = 26;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(46, 15);
+            this.button1.Location = new System.Drawing.Point(43, 12);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(282, 34);
+            this.button1.Size = new System.Drawing.Size(355, 34);
             this.button1.TabIndex = 15;
-            this.button1.Text = "Araçları Haritaya Yerleştir";
+            this.button1.Text = "Aracı Haritaya Yerleştir";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 69);
+            this.textBox1.Location = new System.Drawing.Point(74, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 22);
             this.textBox1.TabIndex = 16;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 113);
+            this.textBox2.Location = new System.Drawing.Point(74, 104);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(115, 22);
             this.textBox2.TabIndex = 17;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 155);
+            this.textBox3.Location = new System.Drawing.Point(74, 146);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(115, 22);
             this.textBox3.TabIndex = 18;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(155, 194);
+            this.textBox4.Location = new System.Drawing.Point(74, 185);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(115, 22);
             this.textBox4.TabIndex = 19;
@@ -142,7 +146,7 @@ namespace DinamicMaps
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 242);
+            this.label1.Location = new System.Drawing.Point(3, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 16);
             this.label1.TabIndex = 21;
@@ -152,7 +156,7 @@ namespace DinamicMaps
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 200);
+            this.label2.Location = new System.Drawing.Point(3, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 22;
@@ -162,7 +166,7 @@ namespace DinamicMaps
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 161);
+            this.label3.Location = new System.Drawing.Point(3, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 16);
             this.label3.TabIndex = 23;
@@ -171,7 +175,7 @@ namespace DinamicMaps
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 116);
+            this.label4.Location = new System.Drawing.Point(3, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 24;
@@ -180,7 +184,7 @@ namespace DinamicMaps
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 75);
+            this.label5.Location = new System.Drawing.Point(3, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 16);
             this.label5.TabIndex = 25;
@@ -189,6 +193,10 @@ namespace DinamicMaps
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.textBoxBoylam);
+            this.panel1.Controls.Add(this.textBoxEnlem);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label5);
@@ -200,16 +208,49 @@ namespace DinamicMaps
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1451, 713);
+            this.panel1.Location = new System.Drawing.Point(1339, 713);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 269);
+            this.panel1.Size = new System.Drawing.Size(435, 269);
             this.panel1.TabIndex = 27;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(219, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Latitude:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(219, 152);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 20);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Longitude:";
+            // 
+            // textBoxEnlem
+            // 
+            this.textBoxEnlem.Location = new System.Drawing.Point(296, 107);
+            this.textBoxEnlem.Name = "textBoxEnlem";
+            this.textBoxEnlem.Size = new System.Drawing.Size(115, 22);
+            this.textBoxEnlem.TabIndex = 28;
+            // 
+            // textBoxBoylam
+            // 
+            this.textBoxBoylam.Location = new System.Drawing.Point(296, 149);
+            this.textBoxBoylam.Name = "textBoxBoylam";
+            this.textBoxBoylam.Size = new System.Drawing.Size(115, 22);
+            this.textBoxBoylam.TabIndex = 29;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1847, 1080);
+            this.ClientSize = new System.Drawing.Size(1800, 1080);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.map);
@@ -251,6 +292,10 @@ namespace DinamicMaps
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBoxBoylam;
+        private System.Windows.Forms.TextBox textBoxEnlem;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 

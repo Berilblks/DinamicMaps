@@ -18,8 +18,6 @@ namespace DinamicMaps
         SqlConnection connection = new SqlConnection(@"Data Source=LENOVO-BERIL;Initial Catalog=projelerVT;Integrated Security=True;Encrypt=False");
 
 
-
-
         public Form1()
         {
             InitializeComponent();
@@ -161,7 +159,38 @@ namespace DinamicMaps
 
         private void button3_Click(object sender, EventArgs e)
         {
-            carsOpenMap();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(@"Data Source=LENOVO-BERIL;Initial Catalog=projelerVT;Integrated Security=True;Encrypt=False"))
+                {
+                    conn.Open();
+                    string sqlInsert = "INSERT INTO Cars (Model, Plaka, CarType, FromWhere, ToWhere, Enlem, Boylam) " +
+                                       "VALUES (@Model, @Plaka, @CarType, @FromWhere, @ToWhere, @Enlem, @Boylam)";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlInsert, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Model", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@Plaka", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@CarType", textBox3.Text);
+                        cmd.Parameters.AddWithValue("@FromWhere", textBox4.Text);
+                        cmd.Parameters.AddWithValue("@ToWhere", textBox5.Text);
+                        cmd.Parameters.AddWithValue("@Enlem", double.Parse(textBoxEnlem.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture));
+                        cmd.Parameters.AddWithValue("@Boylam", double.Parse(textBoxBoylam.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture));
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Araç başarıyla eklendi.");
+
+                // Harita ve datagrid yenile
+                overlay1.Markers.Clear();
+                createCarList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Araç eklenirken hata oluştu: " + ex.Message);
+            }
         }
 
 
@@ -171,6 +200,11 @@ namespace DinamicMaps
         }
 
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
